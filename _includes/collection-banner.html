@@ -1,5 +1,11 @@
 {% if page.layout == "home-infographic" and site.data.theme.featured-image %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
 <style>
+#home-title-box h1 {
+    font-family: "Great Vibes", "Brush Script MT", cursive;
+    font-style: italic;
+    font-weight: 400;
+}
 #home-banner {
     background-image: url('{% include image/featured-image.html %}');
     background-size: cover;
