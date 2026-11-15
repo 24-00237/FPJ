@@ -1,5 +1,5 @@
 ---
-# FPJ home page: introduction, award-winning roles, and the films in release order
+# FPJ home page: introduction, the films in release order with video thumbnails, and subject links
 layout: default
 ---
 {%- assign films = site.data[site.metadata] | where_exp: 'item', 'item.objectid' | where_exp: 'item', 'item.parentid == nil' | sort: 'date' -%}
@@ -22,6 +22,9 @@ layout: default
                 {% for film in films %}
                 <li>
                     <span class="film-year">{{ film.date | split: '-' | first }}</span>
+                    {% if film.youtubeid %}
+                    <a class="film-thumb" href="{{ '/item.html' | relative_url }}?id={{ film.objectid }}" tabindex="-1" aria-hidden="true"><img src="https://img.youtube.com/vi/{{ film.youtubeid }}/mqdefault.jpg" alt="" loading="lazy" width="160" height="90"></a>
+                    {% endif %}
                     <div>
                         <h3><a href="{{ '/item.html' | relative_url }}?id={{ film.objectid }}">{{ film.title }}</a></h3>
                         {% if film.description %}<p>{{ film.description }}</p>{% endif %}

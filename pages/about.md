@@ -16,10 +16,12 @@ He won the FAMAS Award for Best Actor five times and entered the FAMAS Hall of F
 
 ## About this collection
 
-This site gathers a selection of his films. Each entry gives the title, the year of release, and a short note on why the film matters in his career. You can [browse the films]({{ '/browse.html' | relative_url }}), follow them on the [timeline]({{ '/timeline.html' | relative_url }}), or sort and download the [film list]({{ '/data.html' | relative_url }}).
+This site gathers a selection of his films. Each entry has the full film to watch, embedded from YouTube, with its title, year of release, and a short note about it. You can [browse the films]({{ '/browse.html' | relative_url }}), follow them on the [timeline]({{ '/timeline.html' | relative_url }}), or sort and download the [film list]({{ '/data.html' | relative_url }}).
 
 The collection is a work in progress, and more films will be added over time.
 
 ## Credits
+
+The films are embedded from YouTube and remain the property of their respective owners. This site does not host any video.
 
 The site is built with [CollectionBuilder](https://collectionbuilder.github.io/), an open source framework for digital collections, and is hosted on GitHub Pages.

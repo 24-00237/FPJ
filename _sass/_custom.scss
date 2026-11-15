@@ -245,12 +245,15 @@ a.site-wordmark:hover { color: $gold; }
     color: $red;
     line-height: 1;
 }
+.film-thumb { flex: 0 0 160px; margin-right: 1.25rem; align-self: flex-start; background-color: $umber; }
+.film-thumb img { display: block; width: 100%; height: auto; }
 .film-list h3 { margin: 0 0 0.25rem; font-size: 1.35rem; }
 .film-list h3 a { color: $ink; text-decoration: none; }
 .film-list h3 a:hover { color: $red; text-decoration: underline; }
 .film-list p { margin: 0; color: $umber-soft; }
 @media (max-width: 575.98px) {
     .film-year { flex-basis: 4rem; font-size: 1.4rem; }
+    .film-thumb { flex-basis: 96px; margin-right: 0.75rem; }
 }
 
 .home-subjects h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
@@ -317,6 +320,10 @@ a.site-wordmark:hover { color: $gold; }
 #timeline .card img { display: none; }
 #timeline .card .h5 { margin: 0; }
 #timeline a { text-decoration: none; }
+#timeline td .row > div { margin-bottom: 0.75rem; }
+.timeline-thumb { background-color: $umber; border-color: $rule; border-radius: 2px; }
+.timeline-title { font-family: $display; font-size: 1.05rem; color: $ink; margin-top: 0.35rem; }
+#item-content .ratio { background-color: $umber; }
 
 /* ---------- about page ---------- */
 .about-contents > h2 {
