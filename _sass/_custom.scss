@@ -1,4 +1,355 @@
-/* 
-    Put your custom SCSS here! 
-    This allows you to override any CollectionBuilder or Bootstrap CSS without modifying the base theme files directly.
+/*
+    FPJ theme
+    Colours are taken from the sepia banner image: dark umber, aged paper,
+    marquee gold and poster red. Everything that changes the look of the
+    CollectionBuilder template lives in this file.
 */
+
+/* ---------- fonts (self-hosted, see assets/fonts) ---------- */
+@font-face {
+    font-family: "Great Vibes";
+    src: url("../fonts/great-vibes-latin-400-normal.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Oswald";
+    src: url("../fonts/oswald-latin-wght-normal.woff2") format("woff2");
+    font-weight: 200 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("../fonts/source-serif-4-latin-wght-normal.woff2") format("woff2");
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("../fonts/source-serif-4-latin-wght-italic.woff2") format("woff2");
+    font-weight: 200 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ---------- palette ---------- */
+$umber: #1d140e;
+$umber-soft: #33251a;
+$paper: #ecdfc6;
+$paper-light: #f6eedd;
+$ink: #2b1d12;
+$tobacco: #6b4f34;
+$gold: #d8a23a;
+$red: #9c2b1e;
+$rule: #cdbb99;
+
+$display: "Oswald", "Arial Narrow", sans-serif;
+$script: "Great Vibes", "Brush Script MT", cursive;
+
+/* ---------- base ---------- */
+body {
+    background-color: $paper;
+    line-height: 1.65;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $display;
+    font-weight: 500;
+    line-height: 1.2;
+    color: $ink;
+}
+main h1 { font-size: 2.4rem; }
+main h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+main h3 { font-size: 1.3rem; }
+main p, main li { max-width: 68ch; }
+main a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+main a.btn, main .card-title a, main .dropdown-item, main .breadcrumb a { text-decoration: none; }
+a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible {
+    outline: 3px solid $gold;
+    outline-offset: 2px;
+    box-shadow: none;
+}
+#skip-to-content a { background: $red; }
+
+/* ---------- wordmark, shared by banner and footer ---------- */
+.site-wordmark {
+    font-family: $script;
+    font-weight: 400;
+    color: $paper-light;
+    text-decoration: none;
+    line-height: 1;
+}
+a.site-wordmark:hover { color: $gold; }
+
+/* ---------- home banner ---------- */
+#home-banner {
+    position: relative;
+    background-color: $umber;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+#home-banner:before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(to bottom, rgba(29, 20, 14, 0.15) 0%, rgba(29, 20, 14, 0.1) 45%, rgba(29, 20, 14, 0.92) 100%);
+}
+#home-title-box {
+    position: relative;
+    padding-bottom: 1.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+#home-title-box .site-wordmark {
+    font-size: 7.5rem;
+    margin: 0;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.65);
+}
+#home-title-box .site-tagline {
+    font-family: $display;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: $paper-light;
+    margin: 0.25rem 0 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+}
+.site-lifespan {
+    color: $gold;
+    margin-left: 0.5em;
+}
+@media (max-width: 767.98px) {
+    #home-title-box { padding-top: 5.5em !important; }
+    #home-title-box .site-wordmark { font-size: 5rem; }
+    #home-title-box .site-tagline { font-size: 1.15rem; }
+}
+
+/* ---------- banner on inner pages ---------- */
+#page-banner {
+    background-color: $umber;
+    padding: 0.9rem 0 0.6rem;
+}
+#page-banner .site-wordmark {
+    font-size: 2.6rem;
+    margin-right: 0.75rem;
+}
+#page-banner .site-tagline {
+    font-family: $display;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    color: $rule;
+}
+
+/* ---------- navigation ---------- */
+#site-nav {
+    background-color: $umber !important;
+    border-top: 1px solid $umber-soft;
+    border-bottom: 3px solid $gold;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-family: $display;
+}
+#site-nav .nav-link {
+    color: $paper;
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+    padding: 0.5rem 0.9rem;
+    border-bottom: 2px solid transparent;
+}
+#site-nav .nav-link:hover { color: $gold; }
+#site-nav .nav-link.active {
+    color: $gold;
+    border-bottom-color: $gold;
+}
+#site-nav .form-control {
+    background-color: $umber-soft;
+    border-color: $tobacco;
+    color: $paper-light;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 0.95rem;
+}
+#site-nav .form-control::placeholder { color: $rule; }
+#site-nav .btn-light {
+    background-color: $gold;
+    border-color: $gold;
+}
+@media (max-width: 991.98px) {
+    #site-nav .nav-link { border-bottom: 0; border-left: 2px solid transparent; }
+    #site-nav .nav-link.active { border-left-color: $gold; }
+}
+
+/* ---------- buttons, cards, forms ---------- */
+.btn {
+    font-family: $display;
+    letter-spacing: 0.03em;
+    border-radius: 2px;
+}
+.btn-sm { font-size: 0.85rem; }
+.card {
+    background-color: $paper-light;
+    border: 1px solid $rule;
+    border-radius: 2px;
+}
+.form-control, .dropdown-menu, .input-group-text {
+    border-radius: 2px;
+    border-color: $rule;
+}
+.form-control:focus {
+    border-color: $gold;
+    box-shadow: 0 0 0 0.2rem rgba(216, 162, 58, 0.35);
+}
+.dropdown-menu { background-color: $paper-light; }
+.dropdown-item.active, .dropdown-item:active { background-color: $red; }
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    font-family: $display;
+    font-weight: 400;
+}
+.table { --bs-table-striped-bg: rgba(107, 79, 52, 0.08); border-color: $rule; }
+.bg-light { background-color: $paper-light !important; }
+.spinner-border { color: $tobacco !important; }
+
+/* ---------- home page ---------- */
+.home { padding-top: 2.5rem; padding-bottom: 3rem; }
+.home-intro { margin-bottom: 2.5rem; }
+.home-lead {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    max-width: 30em;
+    margin-bottom: 1.25rem;
+}
+.home-intro .btn { margin-right: 0.5rem; margin-bottom: 0.5rem; }
+
+.film-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    border-top: 2px solid $ink;
+}
+.film-list li {
+    display: flex;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid $rule;
+    max-width: none;
+}
+.film-year {
+    flex: 0 0 5.5rem;
+    font-family: $display;
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: $red;
+    line-height: 1;
+}
+.film-list h3 { margin: 0 0 0.25rem; font-size: 1.35rem; }
+.film-list h3 a { color: $ink; text-decoration: none; }
+.film-list h3 a:hover { color: $red; text-decoration: underline; }
+.film-list p { margin: 0; color: $umber-soft; }
+@media (max-width: 575.98px) {
+    .film-year { flex-basis: 4rem; font-size: 1.4rem; }
+}
+
+.home-subjects h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+.home-subjects ul { list-style: none; padding: 0; margin: 0; }
+.home-subjects li { display: inline-block; margin: 0 0.35rem 0.5rem 0; }
+
+/* the dark "marquee" panel listing award-winning roles */
+.marquee {
+    background-color: $umber;
+    color: $paper;
+    padding: 1.5rem 1.5rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border-top: 4px solid $gold;
+}
+.marquee h2 {
+    color: $gold;
+    font-size: 1.6rem;
+    margin: 0;
+}
+.marquee-count { color: $rule; margin: 0.15rem 0 1rem; font-size: 0.95rem; }
+.marquee ul { list-style: none; padding: 0; margin: 0; }
+.marquee li { border-top: 1px solid $umber-soft; }
+.marquee li a {
+    display: block;
+    padding: 0.55rem 0;
+    color: $paper-light;
+    font-family: $display;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+.marquee li a span { color: $gold; display: inline-block; width: 3.5rem; font-weight: 300; }
+.marquee li a:hover { color: $gold; }
+
+/* ---------- browse page ---------- */
+.browse-count {
+    font-family: $display;
+    font-size: 1.1rem;
+    color: $tobacco;
+    margin-top: 0.75rem;
+}
+#browseItems .card { height: 100%; }
+#browseItems .item { margin-bottom: 1.5rem !important; }
+#browseItems .card-body { text-align: left !important; }
+#browseItems .card-title a { color: $ink !important; }
+#browseItems .card-title a:hover { color: $red !important; }
+#browseItems hr { border-color: $rule; opacity: 1; }
+
+/* ---------- item page ---------- */
+#item-format { display: none; }
+#item-title { font-size: 2.4rem; }
+#item-metadata dt {
+    font-family: $display;
+    font-weight: 500;
+    color: $tobacco;
+    margin-top: 1rem;
+}
+#item-metadata dd { max-width: 68ch; }
+#item-metadata .btn-link { padding-left: 0; font-family: inherit; letter-spacing: 0; color: $red; }
+#item-metadata .btn-link:hover { color: $ink; }
+#item-nav a { top: 60%; }
+
+/* ---------- timeline ---------- */
+#timeline th h3 { color: $red; font-weight: 300; font-size: 1.9rem; }
+#timeline .card img { display: none; }
+#timeline .card .h5 { margin: 0; }
+#timeline a { text-decoration: none; }
+
+/* ---------- about page ---------- */
+.about-contents > h2 {
+    font-weight: 500;
+    padding-top: 2rem;
+    border-top: 1px solid $rule;
+}
+.about-contents > h2:first-child { border-top: 0; padding-top: 0; }
+
+/* ---------- footer ---------- */
+#site-footer {
+    background-color: $umber;
+    color: $rule;
+    padding: 2.5rem 0 1.5rem;
+    border-top: 3px solid $gold;
+}
+#site-footer .site-wordmark { font-size: 3rem; }
+.footer-description { max-width: 34em; margin-top: 0.5rem; color: $paper; }
+#footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 1rem;
+    columns: 2;
+    font-family: $display;
+}
+#footer-nav li { margin-bottom: 0.4rem; }
+#footer-nav a { color: $paper-light; text-decoration: none; }
+#footer-nav a:hover, #footer-nav a[aria-current] { color: $gold; }
+.footer-small {
+    border-top: 1px solid $umber-soft;
+    padding-top: 1rem;
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+}
+.footer-small a { color: $paper-light; text-decoration: underline; }
+#scroll-to-top { color: $red; }

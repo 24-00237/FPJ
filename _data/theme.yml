@@ -10,9 +10,9 @@
 # use either an objectid (from an item in this collect), a relative location of an image in this repo (ex. /assets/img/feature.jpg), or a full url to an image elsewhere
 featured-image: /objects/backdrop.jpg
 # optional: add extra padding around collection title for a larger image feature. 
-home-title-y-padding: 10em # Default is 8em
+home-title-y-padding: 13em # Default is 8em
 # optional: change position of background image, center, top, bottom
-home-banner-image-position: # Default is center
+home-banner-image-position: top # Default is center
 
 ##########
 # ITEM PAGE
@@ -23,7 +23,7 @@ browse-buttons: true # true/false, adds previous/next arrows to item pages
 ##########
 # SUBJECTS PAGE
 #
-subjects-fields: subject;creator # set the field to be featured in the cloud (if left blank, none will be generated)
+subjects-fields: subject # set the field to be featured in the cloud (if left blank, none will be generated)
 subjects-min: 1 # min size for subject cloud, too many terms = slow load time!
 subjects-stopwords: # boxers;boxing;boxer # set of subjects separated by ;, e.g. boxers;boxing
 
@@ -94,10 +94,10 @@ navbar-background: bg-dark
 bootswatch: # leave blank or comment out for plain bootstrap
 
 # THEME FONTS
-base-font-size: 1.2em
-text-color: "#191919"
-link-color: "#0d6efd"
-base-font-family: # comment out for bootstrap defaults. e.g. Roboto
+base-font-size: 1.0625rem
+text-color: "#2b1d12"
+link-color: "#9c2b1e"
+base-font-family: '"Source Serif 4", Georgia, serif' # fonts are self-hosted, see assets/fonts and _sass/_custom.scss
 font-cdn: # add font stylesheet, e.g. <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 # THEME ICONS [optional!]

@@ -1,0 +1,64 @@
+---
+# FPJ home page: introduction, award-winning roles, and the films in release order
+layout: default
+---
+{%- assign films = site.data[site.metadata] | where_exp: 'item', 'item.objectid' | where_exp: 'item', 'item.parentid == nil' | sort: 'date' -%}
+{%- assign bestActor = films | where_exp: 'item', 'item.subject contains "FAMAS Best Actor"' -%}
+<div class="container home">
+
+    <section class="home-intro">
+        <p class="home-lead">{{ site.description }}</p>
+        <p>
+            <a class="btn btn-primary" href="{{ '/browse.html' | relative_url }}">Browse the films</a>
+            <a class="btn btn-outline-secondary" href="{{ '/about.html' | relative_url }}">About FPJ</a>
+        </p>
+    </section>
+
+    <div class="row">
+
+        <section class="col-lg-8" aria-labelledby="films-heading">
+            <h2 id="films-heading">Films in this collection</h2>
+            <ol class="film-list">
+                {% for film in films %}
+                <li>
+                    <span class="film-year">{{ film.date | split: '-' | first }}</span>
+                    <div>
+                        <h3><a href="{{ '/item.html' | relative_url }}?id={{ film.objectid }}">{{ film.title }}</a></h3>
+                        {% if film.description %}<p>{{ film.description }}</p>{% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ol>
+            <p><a href="{{ '/timeline.html' | relative_url }}">See the films on a timeline</a></p>
+        </section>
+
+        <aside class="col-lg-4">
+            {% if bestActor.size > 0 %}
+            <section class="marquee" aria-labelledby="awards-heading">
+                <h2 id="awards-heading">FAMAS Best Actor</h2>
+                <p class="marquee-count">{{ bestActor.size }} wins in this collection</p>
+                <ul>
+                    {% for film in bestActor %}
+                    <li><a href="{{ '/item.html' | relative_url }}?id={{ film.objectid }}"><span>{{ film.date | split: '-' | first }}</span> {{ film.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            {%- assign rawSubjects = films | map: 'subject' | join: ';' | split: ';' -%}
+            {%- capture cleanSubjects -%}{% for t in rawSubjects %}{% assign s = t | strip %}{% if s != "" %}{{ s }};{% endif %}{% endfor %}{%- endcapture -%}
+            {%- assign subjects = cleanSubjects | split: ';' | uniq | sort -%}
+            {% if subjects.size > 0 %}
+            <section class="home-subjects" aria-labelledby="subjects-heading">
+                <h2 id="subjects-heading">Browse by subject</h2>
+                <ul>
+                    {% for s in subjects %}
+                    <li><a class="btn btn-sm btn-outline-secondary" href="{{ '/browse.html' | relative_url }}#{{ s | url_param_escape }}">{{ s }}</a></li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+        </aside>
+
+    </div>
+</div>

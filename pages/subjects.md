@@ -8,7 +8,6 @@ permalink: /subjects.html
 cloud-fields: site.data.theme.subjects-fields
 ---
 
-## Browse Subjects
+## Subjects
 
-Use this word cloud visualization to browse terms and subjects.
-Word size is determined by frequency and all words link to a corresponding collection search.
+Choose a subject to see the films tagged with it. Larger words have more films.
