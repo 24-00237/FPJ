@@ -1,5 +1,5 @@
 ---
-layout: home-infographic
+layout: home-fpj
 title: Home
 ---
 
